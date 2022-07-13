@@ -44,5 +44,6 @@ const waitForDdb = async (path, opts = {}) => {
   return true;
 };
 
+console.info(process.cwd())
 console.info('Waiting for DyanmoDB Tables');
 waitForDdb(ddbLogPath, { attempts: 10, requiredTables : tables });
