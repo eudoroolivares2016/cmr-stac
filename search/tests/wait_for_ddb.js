@@ -2,7 +2,7 @@ const fs = require('fs').promises;
 
 const fileExists = async (path) =>!!(await fs.stat(path).catch(_ => false));
 
-const ddbLogPath = '../dynamodb.log';
+const ddbLogPath = './dynamodb.log';
 const tables = ['conceptIdTable',
                 'searchAfterTable'];
 
@@ -37,7 +37,7 @@ const waitForDdb = async (path, opts = {}) => {
 
   if (requiredTables.length !== foundTables) {
     // DynamoDB is running but not ready yet
-    return setTimeout(waitForDdb, 1000, opts);
+    return setTimeout(waitForDdb, 1000, ddbLogPath, opts);
   }
 
   console.info('DynamoDB is ready');
