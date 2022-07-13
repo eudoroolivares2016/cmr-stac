@@ -2,7 +2,7 @@ const fs = require('fs').promises;
 
 const fileExists = async (path) =>!!(await fs.stat(path).catch(_ => false));
 
-const ddbLogPath = './dynamodb.log';
+const ddbLogPath = '../dynamodb.log';
 const tables = ['conceptIdTable',
                 'searchAfterTable'];
 
